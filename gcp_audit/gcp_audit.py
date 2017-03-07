@@ -86,12 +86,14 @@ def apply_rules(ruletype, gcpobjects, descfield, outfile, project):
                     "object '%s' matches rule '%s'" \
                     % (obj[descfield], rule['name'])
 
+#                with open(outfile, 'a') as f:
+#                    f.write(datetime.datetime.now().ctime()
+#                            + ": Project: " + project
+#                            + " | Object: " + obj[descfield]
+#                            + " | Matches rule: " + rule['name']
+#                            + "\n" + json.dumps(obj) + "\n\n")
                 with open(outfile, 'a') as f:
-                    f.write(datetime.datetime.now().ctime()
-                            + ": Project: " + project
-                            + " | Object: " + obj[descfield]
-                            + " | Matches rule: " + rule['name']
-                            + "\n" + json.dumps(obj) + "\n\n")
+                    f.write(json.dumps(obj) + "\n")
 
 
 def apply_rule_filters(obj, filters, filtercondition='and'):
